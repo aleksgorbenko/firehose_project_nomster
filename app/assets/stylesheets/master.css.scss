@@ -1,4 +1,14 @@
 
+body {
+  background: url('/assets/background.png');
+  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar.navbar-inverse {
+  background: url('/assets/bg-nav.png');
+  border-radius: 0;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.65);
+}
 
 .booyah-box {
   -webkit-box-shadow:1px 1px 2px 0 #d0d0d0;
