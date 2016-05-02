@@ -7,11 +7,11 @@
 
 <% end %>
 
-<div class="apple_pagination col-xs-8 col-xs-offset-2">
+<div class="apple_pagination col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
     <div class="page_info">
-      <%= page_entries_info @posts %>
+      <%= page_entries_info @places %>
     </div>
-    <%= will_paginate @posts, :container => false %>
+    <%= will_paginate @places, :container => false %>
   </div>
 
 
