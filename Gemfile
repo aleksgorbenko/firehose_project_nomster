@@ -11,6 +11,9 @@ gem 'will_paginate'
 #submission form
 gem 'simple_form'
 
+# user authentication
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
