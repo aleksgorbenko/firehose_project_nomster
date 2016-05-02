@@ -42,6 +42,17 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+
+/*SUBMIT*/
+
+.btn.btn-primary {
+  background-color: #EDC926;
+  color: #373737;
+  border-color: #EDC926;
+  font-family: 'quicksandbold', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+}
+
 /*PAGINATION*/
 
 .apple_pagination {
@@ -58,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   .apple_pagination .current {
     font-style: normal;
     font-weight: bold;
-    background-color: #bebebe;
+    background-color: #EDC926;
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
