@@ -1,7 +1,7 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1>Edit Your Place</h1> <br>
   <%= simple_form_for @place do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, error: 'The name of the place is too short (minimum is 3 characters' %>
     <%= f.input :address %>
     <%= f.input :description %>
     <br>
