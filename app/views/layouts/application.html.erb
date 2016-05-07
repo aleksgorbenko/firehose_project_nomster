@@ -46,7 +46,12 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <div class="col-xs-4 col-xs-offset-4">
+  <div class="col-xs-6 col-xs-offset-3">
+    <% if flash[:error].present? %>
+      <div class="alert alert-danger">
+        <%= flash[:error].html_safe %>
+      </div>
+    <% end %>
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>

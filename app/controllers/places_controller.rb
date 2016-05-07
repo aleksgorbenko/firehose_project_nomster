@@ -17,6 +17,7 @@ class PlacesController < ApplicationController
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
+      flash[:error] = "<strong>Could not save</strong> the data you entered is invalid. Please check the fields marked in red."
     end
   end
 
