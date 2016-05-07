@@ -9,14 +9,24 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
+
+
   def create
-    current_user.places.create(place_params)
-    redirect_to root_path
+    @place = current_user.places.create(place_params)
+    if @place.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
+
 
   def show
     @place = Place.find(params[:id])
   end
+
+
 
   def edit
     @place = Place.find(params[:id])
@@ -26,6 +36,8 @@ class PlacesController < ApplicationController
     end
   end
 
+
+
   def update
     @place = Place.find(params[:id])
     if @place.user != current_user
@@ -33,8 +45,14 @@ class PlacesController < ApplicationController
     end
 
     @place.update_attributes(place_params)
-    redirect_to place_path
+    if @place.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
+
 
   def destroy
     @place = Place.find(params[:id])
@@ -45,6 +63,8 @@ class PlacesController < ApplicationController
     @place.destroy
     redirect_to root_path
   end
+
+
 
   private
 
