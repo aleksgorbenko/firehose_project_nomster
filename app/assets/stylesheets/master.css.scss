@@ -8,6 +8,8 @@ body {
   clear: both;
 }
 
+/*HOMEPAGE*/
+
 .navbar.navbar-inverse {
   background: url('/assets/bg-nav.png');
   border-radius: 0;
@@ -37,13 +39,23 @@ body {
   font-size: 16px;
 }
 
-.booyah-box i {
-  text-decoration: underline;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+}
+
+.added-by,
+.place-address {
+  color: #999;
+}
+
+p.place-address {
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.added-by {
+  font-style: italic;
 }
 
 
