@@ -2,6 +2,7 @@
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
   <br>
+  <br>
   <p><%= @place.description %></p>
 
   <% if @place.latitude.present? && @place.longitude.present? %>
@@ -31,16 +32,18 @@
     <br>
       <div class="pull-right">
       <% if current_user && current_user == @place.user %>
-        <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-primary' %>
-        <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger' %>
+        <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-primary btn-sm' %>
+        <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger btn-sm' %>
         <% end %>
       </div>
     <br>
     <br>
-    <h1>Comments</h1>
+    <div class="col-xs-10 col-xs-offset-1">
 
+    <h1 class="pull-left">Comments</h1>
+      <div class="clear"></div>
     <% @place.comments.each do |comment| %>
-      <div>
+      <div class="col-xs-12 col-sm-6">
         <blockquote>
           <% if comment.humanized_rating.present? %>
             <b><%= comment.humanized_rating %></b> -
@@ -48,17 +51,16 @@
           <%= comment.message %>
             <small><%= comment.user.email %></small>
         </blockquote>
-        <hr>
       </div>
     <% end %>
-
-    <div class="clear">
-    </div>
-
+    <div class="clear"></div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
       Add a Comment
     </button>
+    </div>
+
+
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -78,7 +80,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <%= f.submit "Post a Comment", class: 'btn btn-primary' %>
+              <%= f.submit "Post a Comment", class: 'btn btn-primary btn-sm' %>
             </div>
           <% end%>
         </div>
