@@ -29,12 +29,23 @@
     <div id="map"></div>
     <% end %>
     <br>
+    <div class="clear">
+    <%= simple_form_for @comment, url: '#' do |f| %>
+      <%= f.input :message %>
+      <br>
+      <%= f.input :rating %>
+      <br>
+      <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
 
-  <div class="pull-right">
-  <% if current_user && current_user == @place.user %>
-    <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-primary' %>
-    <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger' %>
-    <% end %>
-  </div>
+      <div class="pull-right">
+      <% if current_user && current_user == @place.user %>
+        <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-primary' %>
+        <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger' %>
+      <% end %>
+      <% end%>
+      </div>
+    </div>
+
+
 
 </div>
