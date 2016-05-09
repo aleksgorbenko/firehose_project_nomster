@@ -1,7 +1,8 @@
 <% @places.each do |place| %>
 <div class="booyah-box col-md-10 col-md-offset-1">
   <h1><%= link_to place.name, place_path(place) %></h1>
-  <p class="place-address"><%= place.address %></p><br>
+  <p class="place-address"><%= place.address %></p>
+    <br>
   <p><%= place.description %></p>
 
   <% if place.comments.present? %>

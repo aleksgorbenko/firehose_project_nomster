@@ -1,8 +1,7 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1><%= @place.name %></h1>
-  <i><%= @place.address %></i>
-  <br>
-  <br>
+  <p class="place-address"><%= @place.address %></p>
+    <br>
   <p><%= @place.description %></p>
 
   <% if @place.latitude.present? && @place.longitude.present? %>
@@ -36,24 +35,31 @@
         <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger btn-sm' %>
         <% end %>
       </div>
-    <br>
-    <br>
-    <div class="col-xs-10 col-xs-offset-1">
-
+        <br>
+        <br>
+    <div class="col-xs-12">
+      <hr>
     <h1 class="pull-left">Comments</h1>
       <div class="clear"></div>
-    <% @place.comments.each do |comment| %>
-      <div class="col-xs-12 col-sm-6">
-        <blockquote>
-          <% if comment.humanized_rating.present? %>
-            <b><%= comment.humanized_rating %></b> -
-          <% end %>
-          <%= comment.message %>
-            <small><%= comment.user.email %></small>
-        </blockquote>
-      </div>
+      <br>
+
+    <% if !@place.comments.present? %>
+      <i class="no-comment-note">There are currently no comments for this place. Be first to share your experience at <%= @place.name %>!</i>
+    <% else %>
+      <% @place.comments.each do |comment| %>
+        <div class="col-xs-12 col-sm-6">
+          <blockquote>
+            <% if comment.humanized_rating.present? %>
+              <b><%= comment.humanized_rating %></b> -
+            <% end %>
+            <%= comment.message %>
+              <small><%= comment.user.email %></small>
+          </blockquote>
+        </div>
+      <% end %>
     <% end %>
     <div class="clear"></div>
+        <br>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
       Add a Comment
@@ -86,7 +92,4 @@
         </div>
       </div>
     </div>
-
-
-
 </div>
