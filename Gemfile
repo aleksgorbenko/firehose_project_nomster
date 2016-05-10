@@ -6,6 +6,8 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'sprockets', '2.11.0'
 gem 'geocoder'
 gem 'figaro'
+gem 'carrierwave' #for image upload
+gem 'fog' #for AWS communication
 # pagination
 gem 'will_paginate'
 

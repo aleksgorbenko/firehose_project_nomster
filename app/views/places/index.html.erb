@@ -1,22 +1,30 @@
 <% @places.each do |place| %>
-<div class="booyah-box col-md-10 col-md-offset-1">
-  <h1><%= link_to place.name, place_path(place) %></h1>
-  <p class="place-address"><%= place.address %></p>
-    <br>
-  <p><%= place.description %></p>
+<div class="booyah-box col-xs-12 col-md-10 col-md-offset-1">
+  <% if place.photos.present? %>
+    <div class="col-xs-6 col-sm-4 col-md-2">
+      <%= image_tag place.photos.last.picture, class: 'img-thumbnail' %>
+    </div>
+    <% end %>
+
+    <h1><%= link_to place.name, place_path(place) %></h1>
+    <p class="place-address"><%= place.address %></p>
+      <br>
+    <p><%= place.description %></p>
+
 
   <% if place.comments.present? %>
-    <div class="col-xs-12">
-      <blockquote>
+    <div class="col-xs-12 col-sm-8 col-md-8">
+      <blockquote class="homepage-comments">
         <% if place.comments.last.humanized_rating.present? %>
           <b><%= place.comments.last.humanized_rating %></b> -
         <% end %>
         <%= place.comments.last.message %>
           <small><%= place.comments.last.user.email %></small>
+          <i class="comment-timestamp"><%= place.comments.last.created_at.strftime("%B %d, %Y") %></i>
       </blockquote>
     </div>
     <% end %>
-
+    <div class="clear"></div>
     <% if place.user.present? %>
       <small class="pull-right added-by">Added by <%= place.user.email %></small>
     <% end %>

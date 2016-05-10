@@ -2,7 +2,6 @@
   <h1><%= @place.name %></h1>
   <p class="place-address"><%= @place.address %></p>
     <br>
-  <p><%= @place.description %></p>
 
   <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
@@ -29,7 +28,14 @@
     <div id="map"></div>
     <% end %>
     <br>
+      <div class="col-xs-12 col-sm-7">
+        <p class="place-description">"<%= @place.description %>"</p>
+      </div>
       <div class="pull-right">
+        <!--PHOTOS Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#photoModal">
+        Add a Photo
+      </button>
       <% if current_user && current_user == @place.user %>
         <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-primary btn-sm' %>
         <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger btn-sm' %>
@@ -39,12 +45,36 @@
         <br>
     <div class="col-xs-12">
       <hr>
-    <h1 class="pull-left">Comments</h1>
+    <h1 class="pull-left">Photos</h1>
+      <div class="clear"></div>
+      <br>
+
+    <% if !@place.photos.present? %>
+      <i class="absent-item-note">There are currently no photos uploaded for this place.</i>
+    <% else %>
+      <% @place.photos.each do |photo| %>
+        <div class="col-xs-12 col-sm-6 img-responsive">
+
+            <%= image_tag photo.picture, class: 'img-responsive img-rounded' %>
+            <p class="text-center photo-caption"><%= photo.caption %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="clear"></div>
+        <br>
+
+
+
+
+
+
+        <hr>
+        <h1 class="pull-left">Comments</h1>
       <div class="clear"></div>
       <br>
 
     <% if !@place.comments.present? %>
-      <i class="no-comment-note">There are currently no comments for this place. Be first to share your experience at <%= @place.name %>!</i>
+      <i class="absent-item-note">There are currently no comments for this place. Be the first to share your experience at <%= @place.name %>!</i>
     <% else %>
       <% @place.comments.each do |comment| %>
         <div class="col-xs-12 col-sm-6">
@@ -60,16 +90,44 @@
     <% end %>
     <div class="clear"></div>
         <br>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Add a Comment
-    </button>
+
+
+
+    <!-- PHOTO Modal -->
+    <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Add Your Picture</h4>
+          </div>
+          <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+            <div class="modal-body">
+
+              <%= f.input :picture %>
+                <br>
+              <%= f.input :caption %>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.submit "Submit a Photo", class: 'btn btn-primary btn-sm' %>
+            </div>
+          <% end%>
+        </div>
+      </div>
     </div>
 
 
+    <!-- COMMENTS Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commentModal">
+      Add a Comment
+    </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+
+    <!-- COMMENTS Modal -->
+    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
