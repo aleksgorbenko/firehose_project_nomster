@@ -14,6 +14,7 @@ body {
   background: url('/assets/bg-nav.png');
   border-radius: 0;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.65);
+  margin-bottom: 0;
 }
 
 .navbar-inverse .navbar-brand {
@@ -73,6 +74,35 @@ p.place-address {
 .booyah-box a:hover {
   color: #D6B622;
 }
+
+.carousel {
+  box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    max-height: 550px;
+    width: 100%;
+}
+
+.carousel-caption {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 60px;
+  font-weight: 100;
+  text-shadow: rgba(0,0,0, 0.95) 2px 2px;
+  background-color: rgba(0,0,0, 0.6);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+@media (min-width: 100px) and (max-width: 600px) {
+  .carousel-caption {
+    max-height: 100px;
+    font-size: 20px;
+  }
+}
+
+
 
 /*PLACE PAGE*/
 
