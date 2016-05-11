@@ -95,14 +95,21 @@ p.place-address {
   left: 0;
 }
 
-@media (min-width: 100px) and (max-width: 600px) {
+@media (min-width: 100px) and (max-width: 1000px) {
   .carousel-caption {
     max-height: 100px;
     font-size: 20px;
   }
 }
 
-
+@media (min-width: 100px) and (max-width: 1000px) {
+  .carousel,
+  .carousel-inner,
+  .item,
+  .carousel .img-responsive {
+    min-height: 300px;
+  }
+}
 
 /*PLACE PAGE*/
 
