@@ -143,6 +143,10 @@ blockquote p {
   color: #888;
 }
 
+#map {
+  height: 300px;
+}
+
 /*SUBMIT, EDIT, DELETE*/
 
 .btn.btn-danger,
@@ -168,7 +172,6 @@ blockquote p {
   color: #fff;
   border-color: #D9534F;
 }
-
 
 
 /*PAGINATION*/
@@ -211,8 +214,18 @@ blockquote p {
   padding:8px;
 }
 
-/*MAPS*/
+/*PROFILE PAGE*/
 
-#map {
-  height: 300px;
+h1.profile-email {
+  text-decoration: underline;
+}
+
+@media (max-width: 400px)  {
+  h1.profile-email {
+    font-size: 20px;
+  }
+}
+
+.profile-pic {
+  margin-bottom: 30px;
 }
