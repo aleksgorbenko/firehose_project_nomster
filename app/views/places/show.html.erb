@@ -86,6 +86,8 @@
             <% end %>
             <%= comment.message %>
               <small><%= comment.user.email %></small>
+              <br>
+              <i class="comment-timestamp"><%= comment.created_at.strftime("%B %d, %Y") %></i>
           </blockquote>
         </div>
       <% end %>
