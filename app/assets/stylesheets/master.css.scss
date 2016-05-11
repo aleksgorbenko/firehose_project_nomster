@@ -1,4 +1,4 @@
-/*GLOBAL*/
+/* GLOBAL */
 body {
   background: url('/assets/background.png');
   font-family: 'quicksandregular', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -8,7 +8,14 @@ body {
   clear: both;
 }
 
-/*HOMEPAGE*/
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* HOMEPAGE */
+
+/* navbar */
 
 .navbar.navbar-inverse {
   background: url('/assets/bg-nav.png');
@@ -24,6 +31,8 @@ body {
   letter-spacing: 3px;
 }
 
+/* places-box */
+
 .booyah-box {
   -webkit-box-shadow:1px 1px 2px 0 #d0d0d0;
   -moz-box-shadow:1px 1px 2px 0 #d0d0d0;
@@ -38,18 +47,6 @@ body {
 
 .booyah-box p {
   font-size: 16px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-}
-
-.added-by,
-.place-address,
-.absent-item-note,
-.photo-caption {
-  color: #999;
 }
 
 p.place-address {
@@ -75,6 +72,8 @@ p.place-address {
   color: #D6B622;
 }
 
+/* carousel */
+
 .carousel {
   box-shadow: 0px 3px 8px #2a2a2a;
 }
@@ -95,7 +94,7 @@ p.place-address {
   left: 0;
 }
 
-@media (min-width: 100px) and (max-width: 1000px) {
+@media (min-width: 100px) and (max-width: 1200px) {
   .carousel-caption {
     max-height: 100px;
     font-size: 20px;
@@ -111,7 +110,32 @@ p.place-address {
   }
 }
 
+
 /*PLACE PAGE*/
+
+#map {
+  height: 300px;
+}
+
+.added-by,
+.place-address,
+.absent-item-note,
+.photo-caption {
+  color: #999;
+}
+
+.booyah-box .photo-caption {
+  font-size: 13px;
+  font-style: italic;
+}
+
+.booyah-box .place-description {
+  font-family: 'quicksandbold', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #888;
+}
+
+/* comments */
 
 blockquote {
   background: #f9f9f9;
@@ -132,27 +156,14 @@ blockquote p {
   display: inline;
 }
 
-.booyah-box .photo-caption {
-  font-size: 13px;
-  font-style: italic;
-}
-
-.booyah-box .place-description {
-  font-family: 'quicksandbold', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  color: #888;
-}
-
-#map {
-  height: 300px;
-}
-
-/*SUBMIT, EDIT, DELETE*/
+/* submit, edit, delete buttons */
 
 .btn.btn-danger,
-.btn.btn-primary {
+.btn.btn-primary,
+.btn.btn-default {
   font-size: 17px;
   letter-spacing: 1px;
+  font-family: 'quicksandregular', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .btn.btn-primary {
@@ -168,9 +179,16 @@ blockquote p {
 }
 
 .btn.btn-danger {
-  font-family: 'quicksandregular', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #fff;
+  color: #eee;
   border-color: #D9534F;
+}
+
+.btn.btn-danger:hover {
+  color: #fff;
+}
+
+.btn.btn-default:hover {
+  color: #000;
 }
 
 
@@ -205,6 +223,7 @@ blockquote p {
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
 
+
 /*ERRORS*/
 
 .field_with_errors {
@@ -213,6 +232,7 @@ blockquote p {
   border-radius: 3px;
   padding:8px;
 }
+
 
 /*PROFILE PAGE*/
 

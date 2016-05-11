@@ -49,15 +49,15 @@
     </div>
   <% end %>
 
-    <h1><%= link_to place.name, place_path(place) %></h1>
-    <p class="place-address"><%= place.address %></p>
+  <h1><%= link_to place.name, place_path(place) %></h1>
+  <p class="place-address"><%= place.address %></p>
       <br>
-    <p><%= place.description %></p>
+  <p><%= place.description %></p>
 
 
   <% if place.comments.present? %>
-    <div class="col-xs-12 col-sm-8 col-md-8">
-      <blockquote class="homepage-comments">
+    <div class="col-xs-12">
+      <blockquote class="homepage-comments center-block">
         <% if place.comments.last.humanized_rating.present? %>
           <b><%= place.comments.last.humanized_rating %></b> -
         <% end %>
@@ -66,13 +66,15 @@
           <i class="comment-timestamp"><%= place.comments.last.created_at.strftime("%B %d, %Y") %></i>
       </blockquote>
     </div>
-    <% end %>
-    <div class="clear"></div>
-    <% if place.user.present? %>
-      <small class="pull-right added-by">Added by <%= place.user.email %></small>
-    <% end %>
-    </div>
   <% end %>
+
+    <div class="clear"></div>
+
+  <% if place.user.present? %>
+    <small class="pull-right added-by">Added by <%= place.user.email %></small>
+  <% end %>
+</div>
+<% end %>
 
 
 <div class="apple_pagination col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
