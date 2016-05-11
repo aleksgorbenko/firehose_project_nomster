@@ -10,6 +10,8 @@ Nomster::Application.routes.draw do
     resources :photos, only: :create
   end
 
+  resources :users, only: :show
+
   devise_for :users
 
 
