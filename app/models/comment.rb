@@ -19,7 +19,4 @@ class Comment < ActiveRecord::Base
     NotificationMailer.comment_added(self).deliver
   end
 
-  def destroy
-    @comment.destroy
-  end
 end
