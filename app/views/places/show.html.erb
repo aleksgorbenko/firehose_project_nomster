@@ -39,7 +39,7 @@
     </button>
     <% if current_user && current_user == @place.user %>
       <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-default btn-sm' %>
-      <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place: '#{@place.name}'?"},class: 'btn btn-danger btn-sm' %>
+      <%= link_to 'Delete Place', place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete the following place?"},class: 'btn btn-danger btn-sm' %>
     <% end %>
   </div>
     <br>
