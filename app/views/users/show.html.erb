@@ -31,7 +31,7 @@
 
 <% @user.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
-    <h2 class="text-center"><%= link_to comment.place.address, place_path(comment.place) %></h2>
+    <h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %></h2>
     <blockquote>
       <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b> -
